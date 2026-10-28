@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import userModel from "../models/user.model.js";
 
-const authenticateUser = async (req, res, next) => {
+export const authenticateUser = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;
     if (!token) {
@@ -24,5 +24,3 @@ const authenticateUser = async (req, res, next) => {
     return res.status(500).json({ message: "Server Error" });
   }
 };
-
-export default authenticateUser;

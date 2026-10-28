@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 import connectDB from "./lib/db.js";
 import authRouter from "./routes/auth.routes.js";
+import messageRouter from "./routes/message.routes.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 app.use(cors({ origin: ["http://localhost:5173"], credentials: true }));
 
 app.use("/api/auth", authRouter);
+app.use("/api/message", messageRouter);
 
 app.listen(PORT, () => {
   console.log("Server Started");
